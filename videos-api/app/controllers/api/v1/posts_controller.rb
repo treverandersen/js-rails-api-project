@@ -1,7 +1,7 @@
 class Api::V1::PostsController < ApplicationController
   def index
     @posts = Post.all
-    render json: @notes, status: 200
+    render json: @posts, status: 200
   end
 
   def show
