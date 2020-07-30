@@ -8,5 +8,7 @@
 
 Post.create([
   { title: 'Video Title 1', show_notes: 'This is where the description of the video goes.', length: '24:38', video: 'https://youtube.com' },
-  { title: 'Video Title 2', show_notes: 'This is a description', length: '18:35', video: 'https://youtube.com' }
+  { title: 'Video Title 2', show_notes: 'This is a description', length: '18:35', video: 'https://youtube.com' },
+  { title: 'Nested test', show_notes: 'testing nested attributes', length: '2:34', video: 'https://youtube.com', series_attributes: [ { name: 'series 1' } ], tag_attributes: [ { name: 'tag 1' } ], category_attributes: [ { name: 'category 1' } ] } 
 ])
+

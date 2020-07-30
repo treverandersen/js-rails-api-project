@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_011524) do
+ActiveRecord::Schema.define(version: 2020_07_30_033227) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -19,12 +25,41 @@ ActiveRecord::Schema.define(version: 2020_07_30_011524) do
     t.string "video"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
+    t.integer "tag_id"
+    t.integer "series_id"
+    t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["series_id"], name: "index_posts_on_series_id"
+    t.index ["tag_id"], name: "index_posts_on_tag_id"
+  end
+
+  create_table "posts_tags", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_posts_tags_on_post_id"
+    t.index ["tag_id"], name: "index_posts_tags_on_tag_id"
+  end
+
+  create_table "series", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_id"
+    t.index ["post_id"], name: "index_tags_on_post_id"
   end
 
+  add_foreign_key "posts", "categories"
+  add_foreign_key "posts", "series"
+  add_foreign_key "posts", "tags"
+  add_foreign_key "posts_tags", "posts"
+  add_foreign_key "posts_tags", "tags"
+  add_foreign_key "tags", "posts"
 end

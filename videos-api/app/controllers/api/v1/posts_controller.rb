@@ -28,6 +28,6 @@ class Api::V1::PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :show_notes, :length, :video)
+      params.require(:post).permit(:title, :show_notes, :length, :video, :series_id, :tag_id, :category_id, series_attributes: [:name], tag_attributes: [:name], category_attributes: [:name])
     end
 end
