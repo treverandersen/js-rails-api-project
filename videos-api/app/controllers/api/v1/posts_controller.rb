@@ -1,12 +1,12 @@
 class Api::V1::PostsController < ApplicationController
   def index
-    @posts = Post.all
-    render json: @posts, status: 200
+    posts = Post.all
+    render json: PostSerializer.new(posts).to_serialized_json, status: 200
   end
 
   def show
-    @post = Post.find(params[:id])
-    render json: @post, status: 200
+    post = Post.find_by(id: params[:id])
+    render json: PostSerializer.new(post).to_serialized_json, status: 200
   end
 
   def create
@@ -28,6 +28,6 @@ class Api::V1::PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :show_notes, :length, :video, :series_id, :tag_id, :category_id, series_attributes: [:name], tag_attributes: [:name], category_attributes: [:name])
+      params.require(:post).permit(:title, :show_notes, :length, :video, :series_id, :category_id, series_attributes: [:name], category_attributes: [:name])
     end
 end
