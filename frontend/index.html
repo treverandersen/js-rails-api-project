@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="main.css"/>
+  </head>
+<body>
+  <div class="container">
+    <h1>Video Library</h1>
+    <div id="new-post-form">
+      <form id="new-post-form">
+        <input type="text" name="name" id="name">
+	<input type="text" name="show_notes" id="show_notes">
+	<input type="text" name="length" id="length">
+	<input type="text" name="video" id="video">
+	<input type="text" name="category" id="category">
+	<input type="text" name="series" id="series">
+	<input type="submit" value="save post">
+      </form>
+    </div>
+
+    <div id="posts-list">
+      <h2>Video List</h2>
+      
+    </div>
+
+    <div id="post-show">
+
+    </div>
+  </div>
+  
+  <script src="/js/components/post.js"></script>
+  <script src="/js/components/posts.js"></script>
+  <script src="/js/components/app.js"></script>
+  <script src="/js/adapters/PostsAdapter.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+</html>
