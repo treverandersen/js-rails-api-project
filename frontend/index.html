@@ -8,29 +8,42 @@
     <link rel="stylesheet" href="main.css"/>
   </head>
 <body>
-  <div class="container">
+  <header>
     <h1>Video Library</h1>
-    <div id="new-post-form">
+    <button class="btn">Add Post</button>
+  </header>
+
+  <main class="container">
+    <div id="post-form">
       <form id="new-post-form">
-        <input type="text" name="name" id="name">
-	<input type="text" name="show_notes" id="show_notes">
-	<input type="text" name="length" id="length">
-	<input type="text" name="video" id="video">
-	<input type="text" name="category" id="category">
-	<input type="text" name="series" id="series">
-	<input type="submit" value="save post">
+        <label for="postTitle">Post Title</label>
+        <input type="text" name="title" id="title" placeholder="Post Title">
+		  
+	<label for="videoLength">Video Length</label>
+	<input type="text" name="length" id="length" placeholder="Video Length">
+	  
+	<label for="video">Video Link</label>
+	<input type="text" name="video" id="video" placeholder="Video Link">
+	
+	<label for="categoryName">Category</label>
+	<input type="text" name="category[name]" id="category" placeholder="Category">
+	
+	<label for="seriesName">Series</label>
+	<input type="text" name="series[name]" id="series" placeholder="Series">
+
+	<label for="showNotes">Show Notes</label>
+	<textarea type="text" name="show_notes" id="show_notes" placeholder="Show Notes"></textarea>
+	
+	<button class="btn submit" type="submit">Create Post</button>
       </form>
+    </div>
+    <div id="post-show" class="hidden">
     </div>
 
     <div id="posts-list">
       <h2>Video List</h2>
-      
     </div>
-
-    <div id="post-show">
-
-    </div>
-  </div>
+  </main>
   
   <script src="/js/components/post.js"></script>
   <script src="/js/components/posts.js"></script>

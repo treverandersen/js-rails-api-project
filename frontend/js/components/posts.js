@@ -20,14 +20,7 @@ class Posts {
 
   createPost(e) {
     e.preventDefault()
-    const formData = {
-      title: this.newPostTitle,
-      show_notes: this.newPostShowNotes,
-      length: this.newPostLength,
-      video: this.newPostVideo,
-      category: this.newPostCategory,
-      series: this.newPostSeries
-    }
+    const formData = new formData(this)
 
     this.adapter.createPost(formData).then(post => {
       this.posts.push(new Post(post))
